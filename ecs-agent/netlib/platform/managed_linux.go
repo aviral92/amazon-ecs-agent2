@@ -77,6 +77,9 @@ func (m *managedLinux) ConfigureInterface(
 	iface *networkinterface.NetworkInterface,
 	netDAO netlibdata.NetworkDataClient,
 ) error {
+	logger.Info(fmt.Sprintf("Here : %s", iface))
+	iface.DeviceName = "eth1"
+	logger.Info(fmt.Sprintf("network interface is : %s", iface))
 	return m.common.configureInterface(ctx, netNSPath, iface, netDAO)
 }
 
